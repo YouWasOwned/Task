@@ -83,6 +83,14 @@ namespace Task.Services
             {
                 var recommenderId = (int)request.RecommenderID;
                 var recommender = distirbutorRepository.GetRecommenderDistributor(recommenderId);
+                if (recommender == null)
+                {
+                    return new Response()
+                    {
+                        StatusCode = 404,
+                        Message = "Recommender Distributor Not Found"
+                    };
+                }
                 if (recommender.RecommendedDistributorsCount == 3)
                 {
                     return new Response()
@@ -98,7 +106,7 @@ namespace Task.Services
                     distirbutorRepository.UpdateDistributorRecommendedDistributorsCount(recommenderId, recommendedPeopleCount);
                 }
             }
-            var imagePath = "";
+            string? imagePath = null;
             if (request.ImageFile != null)
             {
                 string wwwRootPath = _hostEnvitonment.WebRootPath;

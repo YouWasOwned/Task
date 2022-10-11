@@ -21,7 +21,7 @@ namespace Task.Requests
         public Gender Gender { get; set; }
 
         [DisplayName("Upload Image")]
-        public IFormFile ImageFile { get; set; }
+        public IFormFile? ImageFile { get; set; }
 
         [Required]
         public IdentificationInformationType IdentificationInformationType { get; set; }
