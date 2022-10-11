@@ -93,8 +93,9 @@ namespace Task.Repository
             var p = new DynamicParameters();
             p.Add("name", request.Name);
             p.Add("surname", request.Surname);
-            p.Add("minMaxType", request.MinMaxType);
-            var result = dbConnection.Query<FilteredDistributor>("sp_getDistributorBonuses", p, commandType: CommandType.StoredProcedure).ToList();
+            p.Add("minBonusAmount", request.MinBonusAmount);
+            p.Add("maxBonusAmount", request.MaxBonusAmount);
+            var result = dbConnection.Query<FilteredDistributor>("sp_filterDistributors", p, commandType: CommandType.StoredProcedure).ToList();
             return result;
         }
     }

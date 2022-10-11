@@ -1,4 +1,6 @@
-﻿namespace Task.Models
+﻿using Task.Models.Enums;
+
+namespace Task.Models
 {
     public class FilteredDistributor
     {

@@ -46,7 +46,7 @@ namespace Task.Controllers
         }
 
 
-        [HttpGet("filter-distributors")]
+        [HttpPost("filter-distributors")]
         public FilterDistributorsResponse FilterDistributors(FilterDistributorsRequest request)
         {
             return distributorService.FilterDistributors(request);

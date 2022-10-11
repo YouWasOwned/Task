@@ -43,7 +43,14 @@ namespace Task.Services
 
         public FilterDistributorsResponse FilterDistributors(FilterDistributorsRequest request)
         {
-            throw new NotImplementedException();
+            var result = distirbutorRepository.FilterDistributors(request);
+            var message = result.Count() == 0 ? "No Results" : "SUCCESS";
+            return new FilterDistributorsResponse()
+            {
+                StatusCode = 200,
+                Message = message,
+                FilteredDistributors = result
+            };
         }
 
         public GetAllDistributorsResponse GetAllDistributors()
